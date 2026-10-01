@@ -1,0 +1,92 @@
+# Personal Finance AI System - local stack
+#
+# Usage:
+#   cp .env.example .env      # then edit the secrets
+#   docker compose up -d --build
+#   docker compose ps
+#
+# Host ports are deliberately offset from the defaults (5433 / 8081 / 5173) so the
+# stack can run next to an existing local PostgreSQL without a conflict.
+
+name: personal-finance-ai
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: finai-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-finai}
+      POSTGRES_USER: ${DB_USER:-finai}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD must be set in .env}
+    ports:
+      - "${DB_HOST_PORT:-5433}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-finai} -d ${DB_NAME:-finai}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    networks:
+      - finai
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: personal-finance-ai-backend:0.1.0
+    container_name: finai-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SERVER_PORT: 8081
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-finai}
+      DB_USER: ${DB_USER:-finai}
+      DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET must be set in .env}
+      JWT_EXPIRATION: ${JWT_EXPIRATION:-12h}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://localhost:5173,http://localhost:3000}
+      APP_ADMIN_EMAIL: ${APP_ADMIN_EMAIL:-}
+      APP_ADMIN_PASSWORD: ${APP_ADMIN_PASSWORD:-}
+      AI_PROVIDER: ${AI_PROVIDER:-LOCAL}
+      AI_PROVIDER_API_KEY: ${AI_PROVIDER_API_KEY:-}
+      AI_PROVIDER_BASE_URL: ${AI_PROVIDER_BASE_URL:-https://api.openai.com/v1}
+      AI_PROVIDER_MODEL: ${AI_PROVIDER_MODEL:-gpt-4o-mini}
+      BUDGET_WARNING_THRESHOLD: ${BUDGET_WARNING_THRESHOLD:-80}
+      BUDGET_EXCEEDED_THRESHOLD: ${BUDGET_EXCEEDED_THRESHOLD:-100}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      TZ: UTC
+    ports:
+      - "${BACKEND_HOST_PORT:-8081}:8081"
+    networks:
+      - finai
+
+  admin-web:
+    build:
+      context: ./admin-web
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: ${ADMIN_API_BASE_URL:-http://localhost:8081}
+    image: personal-finance-ai-admin:0.1.0
+    container_name: finai-admin-web
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_started
+    ports:
+      - "${ADMIN_HOST_PORT:-5173}:80"
+    networks:
+      - finai
+
+volumes:
+  postgres-data:
+
+networks:
+  finai:
+    driver: bridge

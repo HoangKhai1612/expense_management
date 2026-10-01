@@ -1,0 +1,58 @@
+# ---- Secrets: never commit ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+secrets/
+credentials/
+
+# ---- Java / Maven / Gradle ----
+backend/target/
+*.jar
+# Wrapper jars are required for a fresh clone to build at all:
+# without gradle-wrapper.jar, ./gradlew cannot find GradleWrapperMain.
+!.mvn/wrapper/maven-wrapper.jar
+!android/gradle/wrapper/gradle-wrapper.jar
+
+# ---- Node / Admin Web ----
+node_modules/
+admin-web/dist/
+admin-web/.vite/
+npm-debug.log*
+yarn-error.log*
+
+# ---- Android ----
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.kotlin/
+android/captures/
+*.apk
+*.aab
+*.keystore
+!debug.keystore
+
+# ---- IDE / agent tooling ----
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+.kilo/
+.claude/
+.cursor/
+
+# ---- OS ----
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ---- Test evidence / logs ----
+logs/
+*.log

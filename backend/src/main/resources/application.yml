@@ -1,0 +1,111 @@
+server:
+  port: ${SERVER_PORT:8081}
+  shutdown: graceful
+  error:
+    include-stacktrace: never
+    include-message: never
+    include-binding-errors: never
+
+spring:
+  application:
+    name: finance-ai-backend
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5433}/${DB_NAME:finai}?currentSchema=public
+    username: ${DB_USER:finai}
+    password: ${DB_PASSWORD:finai}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: ${DB_POOL_SIZE:10}
+      connection-timeout: 10000
+      pool-name: finance-ai-pool
+
+  jpa:
+    # The schema is owned by Flyway. Hibernate only verifies that the entities and
+    # the migrations agree, so a drifting migration fails fast at start-up.
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+        format_sql: false
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+
+  mvc:
+    problemdetails:
+      enabled: false
+    # Let an unmatched URL raise NoHandlerFoundException so GlobalExceptionHandler can
+    # return the standard 404 envelope instead of Spring's default error dispatch,
+    # which would otherwise be caught by the catch-all handler and reported as 500.
+    throw-exception-if-no-handler-found: true
+
+  web:
+    resources:
+      add-mappings: false
+
+  threads:
+    virtual:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+      probes:
+        enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+
+app:
+  jwt:
+    # Supplied via the JWT_SECRET environment variable. Must be >= 32 bytes.
+    secret: ${JWT_SECRET:}
+    expiration: ${JWT_EXPIRATION:12h}
+
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173,http://127.0.0.1:3000}
+
+  budget-alerts:
+    # Single source of truth for the thresholds; not hard-coded in any module.
+    warning-threshold: ${BUDGET_WARNING_THRESHOLD:80}
+    exceeded-threshold: ${BUDGET_EXCEEDED_THRESHOLD:100}
+
+  ai:
+    # LOCAL is the built-in deterministic analyst and needs no external service.
+    provider: ${AI_PROVIDER:LOCAL}
+    api-key: ${AI_PROVIDER_API_KEY:}
+    base-url: ${AI_PROVIDER_BASE_URL:https://api.openai.com/v1}
+    model: ${AI_PROVIDER_MODEL:gpt-4o-mini}
+    timeout: ${AI_PROVIDER_TIMEOUT:20s}
+    max-transactions-in-context: 200
+
+  bootstrap-admin:
+    email: ${APP_ADMIN_EMAIL:}
+    password: ${APP_ADMIN_PASSWORD:}
+
+logging:
+  level:
+    root: INFO
+    com.finai: ${LOG_LEVEL:INFO}
+    org.springframework.security: WARN
+    org.hibernate.SQL: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n"

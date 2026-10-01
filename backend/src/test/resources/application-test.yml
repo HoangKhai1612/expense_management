@@ -1,0 +1,36 @@
+spring:
+  # Testcontainers supplies the datasource; nothing here may fall back to localhost.
+  datasource:
+    url: ${TEST_DB_URL:jdbc:postgresql://localhost:5432/finai}
+    username: ${TEST_DB_USER:finai}
+    password: ${TEST_DB_PASSWORD:finai}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+app:
+  jwt:
+    # A fixed throwaway secret for tests only; the real one comes from the environment.
+    secret: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+    expiration: 1h
+  ai:
+    # The deterministic built-in analyst: no external provider is contacted in tests.
+    provider: LOCAL
+  budget-alerts:
+    warning-threshold: 80
+    exceeded-threshold: 100
+  bootstrap-admin:
+    email: admin@finai.local
+    # Quoted: an unquoted scalar would be truncated at the '#'.
+    password: 'Admin#12345'
+
+logging:
+  level:
+    root: WARN
+    com.finai: INFO
+    org.springframework.security: WARN
