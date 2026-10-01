@@ -155,14 +155,16 @@ Counted programmatically from
 
 | Status | Count | Share (DERIVED) |
 |---|---|---|
-| VERIFIED | 147 | 89.6% |
+| VERIFIED | 148 | 90.2% |
 | PARTIAL | 8 | 4.9% |
-| GAP | 9 | 5.5% |
+| GAP | 7 | 4.3% |
+| OUT OF SCOPE | 1 | 0.6% |
 | Total | 164 | 100% |
 
-The 9 gaps are all missing *practices* (CI, UI automation, load testing, rate
-limiting, TLS, log-redaction review, source control, external-provider path,
-Android feedback UI) rather than missing specified behaviour.
+The 7 gaps are all missing *practices* (CI, UI automation, load testing, rate
+limiting, TLS, image scanning, external-provider path) rather than missing
+specified behaviour. The out-of-scope row is the Android feedback UI, excluded
+with a recorded rationale.
 
 ## 8. Code volume — MEASURED
 

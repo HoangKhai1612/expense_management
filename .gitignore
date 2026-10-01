@@ -48,6 +48,11 @@ android/captures/
 .claude/
 .cursor/
 
+# Stray nested clone of the GitHub template remote, created accidentally during
+# repository reconciliation. It contains only the template README and no unique
+# work. Must never be committed: git would otherwise record it as a submodule.
+expense_management/
+
 # ---- OS ----
 Thumbs.db
 .DS_Store

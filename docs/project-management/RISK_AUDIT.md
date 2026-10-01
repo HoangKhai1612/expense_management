@@ -87,12 +87,21 @@ No rate-limiting dependency, filter or configuration exists. Acceptable for
 local and demo use; blocks public deployment.
 
 ### R-06 — Secret leakage via logs
-**L3 × I4 = 12 (Medium)** · **Status: OPEN, confirmed unreviewed**
+**L3 × I4 = 12 (Medium)** · **Status: RETIRED 2026-10-01 — review performed, no secret logged**
 
-The appender uses the Spring Boot default pattern. The final audit scanned the
-backend log for ERROR lines and found none, but **that is not a redaction
-review**: it says nothing about whether a request body or token could appear in
-a log line at INFO level.
+Originally opened as OPEN, confirmed unreviewed: scanning the backend log for
+ERROR lines is not a redaction review, because it says nothing about whether a
+request body or token could appear at INFO level.
+
+The review has now been carried out. All 20 backend log statements were
+enumerated and inspected; a search confirmed that no log call references a
+password, token, secret, API key or `Authorization` header; and the live runtime
+log was searched for the actual `.env` secret values with zero matches. Spring
+Boot's generated default security user was tested and returns 401 on two
+endpoints, so it is not exploitable.
+
+Full analysis, method and five residual hardening recommendations:
+[`../LOGBACK_SECURITY_REVIEW.md`](../LOGBACK_SECURITY_REVIEW.md).
 
 ### R-10 — No CI, so a failing change can land
 **L3 × I4 = 12 (Medium)** · **Status: OPEN, confirmed**
@@ -105,17 +114,32 @@ makes CI straightforward to add, but it does not exist.
 
 ## Risks added by this audit
 
-### R-15 — No source control repository *(new)*
-**L3 × I4 = 12 (Medium)** · **Status: OPEN**
+### R-15 — Historical development provenance unavailable
+**L3 × I4 = 12 (Medium)** · **Status: MITIGATED FOR FUTURE DEVELOPMENT**
 
-Discovered by this audit. No `.git` directory exists, so there is no commit
-history, no authorship, no branch or tag, and no regression history proving the
-three fixed defects were the only ones. Evidence: `git rev-parse` →
-`fatal: not a git repository`.
+| Field | Finding |
+|---|---|
+| Original risk | No version control, so no commit history, authorship, branch or tag record |
+| Mitigation applied | Repository initialised and reconciled with the provided GitHub remote. Baseline commit `59cc2a0` on `main`, remote synchronised (fast-forward), release tag `v1.0.0-academic-final` created. Parent commit `2c4371b` preserved unmodified — no force push, no history rewrite |
+| Verification | `git rev-list --left-right --count origin/main...main` → `0 0`. `git ls-remote origin` shows `59cc2a0`. Commit graph: `59cc2a0` → `2c4371b` |
+| Actual occurrence | Confirmed — the project genuinely was never versioned during development |
+| Response | Version control established and the absence of history disclosed explicitly in the commit message, `BASELINE.md` and `EFFORT_DATA_GAP.md` |
+| **Status** | **Mitigated for future development** |
+| **Explicit caveat** | **Historical provenance is NOT restored.** Development-period commits, authorship, schedule and effort remain `UNKNOWN / NOT RECORDED` and cannot be reconstructed. This risk is closed going forward only |
+| Evidence | `CONFIGURATION_BASELINE.md` section 1; `docs/SECRET_SCAN_REPORT.md`; the baseline commit message itself |
 
-Deliberately **not** remediated: initialising Git now would create a single
-initial commit representing the finished system, which would misrepresent
-history rather than record it.
+### R-18 — Gradle wrapper jar excluded from version control *(new, FIXED)*
+**L2 × I5 = 10 (Medium)** · **Status: OCCURRED AND FIXED**
+
+| Field | Finding |
+|---|---|
+| Defect | `.gitignore` had a blanket `*.jar` rule that excluded `android/gradle/wrapper/gradle-wrapper.jar` |
+| Impact | A fresh `git clone` could not build the Android project — `./gradlew` would fail with `Could not find or load main class org.gradle.wrapper.GradleWrapperMain` |
+| Detection | `git check-ignore -v` during the pre-commit audit. **No test in the project could have caught this**, because local builds used the jar already present on disk |
+| Fix | Added `!android/gradle/wrapper/gradle-wrapper.jar` to `.gitignore` |
+| Verification | Jar confirmed staged and present in the baseline commit |
+| Status | **CLOSED** |
+| Lesson | A working local directory can mask a repository defect. Reproducibility must be proven from a clean clone |
 
 ### R-16 — Deployment health signal was false-negative *(new, now closed)*
 **L2 × I3 = 6 (Low)** · **Status: OCCURRED AND FIXED**
@@ -160,6 +184,10 @@ rather than generated from the running system, which is the root cause.
 | Admin console types could drift from the API | Contract suite added; 102/102 |
 | Admin console did not exist | Built; typechecks, bundles, containerises |
 | Healthcheck could not detect a real outage (R-16) | Probe corrected to IPv4 loopback |
+| Secret leakage via logs (R-06) | Review performed: 0 secrets logged. `docs/LOGBACK_SECURITY_REVIEW.md` |
+| Agent tooling would be committed | `.kilo/`, `.claude/`, `.cursor/` added to `.gitignore` |
+| Fresh clone could not build Android (R-18) | Wrapper jar explicitly un-ignored and committed |
+| No version control (R-15) | Repository, remote, baseline commit, tag. History permanently unavailable |
 
 ---
 
@@ -168,10 +196,22 @@ rather than generated from the running system, which is the root cause.
 | Status | Count |
 |---|---|
 | High (≥15) open | **0** |
-| Medium open | 6 (R-06, R-10, R-12, R-13, R-15, R-17) |
-| Low open | 2 (R-16 is closed; R-17 counted above) |
-| Occurred and fixed | 3 (R-01, R-16, plus the `Format.kt` duplicate) |
+| Medium open | 4 (R-06 closed this pass, R-10, R-12, R-13, R-17) |
+| Occurred and fixed | 5 (R-01, R-16, R-18, plus the `Format.kt` duplicate) |
+| Closed this pass | R-05 previously verified; **R-06 (log redaction) and R-15 (source control) now closed** |
 
-No risk scores were changed in this audit. The only status changes are R-04 and
-R-08, whose corrections were made earlier and are upheld here on the strength of
-passing E2E assertions.
+No risk score was changed in this pass. Status changes are R-06 (closed by
+`docs/LOGBACK_SECURITY_REVIEW.md`) and R-15 (closed going forward by the
+repository baseline, with the historical caveat stated explicitly).
+
+### Still open
+
+| Risk | Score | Why still open |
+|---|---|---|
+| R-10 No CI | 12 | No pipeline exists; all verification is manual |
+| R-12 No backups | 10 | No dump, restore or recovery capability |
+| R-13 No rate limiting | 12 | No implementation |
+| R-17 Documentation drift | 6 | Two minor items remain (D-05 wording is fixed; D-06 test coverage open) |
+
+The four **production** gaps — CI, backups, rate limiting and TLS — remain open
+and are stated as open in every relevant document.

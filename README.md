@@ -10,6 +10,26 @@ number**. Every figure it reports is a parameterised aggregate over the
 authenticated user's own rows, and the answer is always split into verified facts
 and judgement so the two can never be confused.
 
+## Repository
+
+```bash
+git clone https://github.com/HoangKhai1612/expense_management.git
+cd expense_management
+```
+
+| | |
+|---|---|
+| Branch | `main` |
+| Verified baseline | `59cc2a0` — `chore: establish verified academic project baseline` |
+| Release tag | `v1.0.0-academic-final` |
+
+> **History notice.** Version control was established **after** the main
+> development period. The baseline commit does **not** represent the complete
+> development process, and historical development provenance is
+> `UNKNOWN / NOT RECORDED` — no development-period commits, authorship or
+> schedule exist or can be reconstructed. This notice is also recorded in the
+> baseline commit message.
+
 ## Components
 
 | Component | Stack | Port | Purpose |
@@ -134,6 +154,13 @@ ones most likely to need changing:
 
 ### Project management
 
-- [`docs/project-management/project-plan.md`](docs/project-management/project-plan.md) - phases, milestones, design decisions
-- [`docs/project-management/risk-register.md`](docs/project-management/risk-register.md) - scored risks and mitigations
-- [`docs/project-management/status-report.md`](docs/project-management/status-report.md) - delivery status and outstanding work
+- [`docs/project-management/BASELINE.md`](docs/project-management/BASELINE.md) - verified state at commit `59cc2a0`
+- [`docs/project-management/REQUIREMENT_TRACEABILITY.md`](docs/project-management/REQUIREMENT_TRACEABILITY.md) - 164 requirements traced to evidence
+- [`docs/project-management/QUALITY_PLAN.md`](docs/project-management/QUALITY_PLAN.md) - requirement → criterion → test → result
+- [`docs/project-management/RISK_AUDIT.md`](docs/project-management/RISK_AUDIT.md) - scored risks, each verified against evidence
+- [`docs/project-management/METRICS.md`](docs/project-management/METRICS.md) - measured vs derived vs unavailable
+- [`docs/project-management/PROJECT_CLOSURE.md`](docs/project-management/PROJECT_CLOSURE.md) - closure decision and lessons learned
+- [`docs/project-management/FINAL_PROJECT_STATUS.md`](docs/project-management/FINAL_PROJECT_STATUS.md) - final gate
+- [`docs/project-management/EFFORT_DATA_GAP.md`](docs/project-management/EFFORT_DATA_GAP.md) - what history cannot be reconstructed
+- [`docs/SECRET_SCAN_REPORT.md`](docs/SECRET_SCAN_REPORT.md) - pre-commit secret scan
+- [`docs/LOGBACK_SECURITY_REVIEW.md`](docs/LOGBACK_SECURITY_REVIEW.md) - logging security audit

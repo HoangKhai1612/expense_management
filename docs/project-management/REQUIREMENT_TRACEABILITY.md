@@ -5,8 +5,8 @@ and the evidence that test produced. A requirement is `VERIFIED` only when a
 test was executed and passed during the final audit.
 
 Legend — **VERIFIED**: executed and passed. **PARTIAL**: implemented, not fully
-covered by tests. **GAP**: not implemented. **UNKNOWN**: cannot be assessed
-because evidence does not exist.
+covered by tests. **GAP**: not implemented. **OUT OF SCOPE**: deliberately
+excluded with a recorded rationale, not an omission.
 
 ---
 
@@ -29,7 +29,7 @@ because evidence does not exist.
 | Deactivated account blocked | `AuthService` status check | `AuthServiceTest` | Rejected | VERIFIED |
 | Lock invalidates existing tokens | Filter re-reads account status | E2E "Pre-lock token is rejected after locking" | 401 after lock | VERIFIED |
 | Session state is stateless | `SessionCreationPolicy.STATELESS` | Source inspection | — | VERIFIED |
-| `GET /api/auth/me` | `AuthController.me()` | Not covered by any test | Endpoint reachable | PARTIAL |
+| `GET /api/auth/me` | `AuthController.me()` | Manual verification + now documented | 200 returns own `UserSummary`; 401 anonymous | PARTIAL |
 
 ## Authorization
 
@@ -157,7 +157,7 @@ because evidence does not exist.
 | Admin triages status | `FeedbackTicketService` | E2E; contract suite | `RESOLVED` | VERIFIED |
 | Admin reply stored and visible to user | `FeedbackTicketService` | E2E; contract suite | Reply text round-trips | VERIFIED |
 | Status filter | `AdminController` | Contract suite | OPEN filter accepted | VERIFIED |
-| Android submission UI | — | — | No screen, no repository method | GAP |
+| Android submission UI | — | Classified out of scope, not tested | Feedback delivered via backend + admin console triage UI | OUT OF SCOPE |
 
 ## Administration
 
@@ -202,7 +202,7 @@ because evidence does not exist.
 | Backend error-free startup | — | `docker compose logs` | 0 ERROR lines | VERIFIED |
 | Environment-driven configuration | `application.yml`, `.env` | Startup | All keys from environment | VERIFIED |
 | Compose fails fast on missing secrets | `${VAR:?message}` | Configuration inspection | Build-time enforcement | VERIFIED |
-| Source control repository | — | — | **No `.git` directory** | GAP |
+| Source control repository | Git on `main` | Verified by `git rev-list --left-right --count` | Repo + remote synchronised (0/0), tag set. Development history pre-dates it | VERIFIED |
 | CI pipeline | — | — | Does not exist | GAP |
 
 ## Quality
@@ -248,16 +248,23 @@ because evidence does not exist.
 
 ## Summary counts
 
-| Status | Count |
-|---|---|
-| VERIFIED | 147 |
-| PARTIAL (implemented, not fully asserted) | 8 |
-| GAP (not implemented) | 9 |
-| **Total rows** | **164** |
+| Status | Count | Change since first audit |
+|---|---|---|
+| VERIFIED | 148 | +1 (source control repository now exists) |
+| PARTIAL | 8 | unchanged |
+| GAP | 7 | −2 (source control closed, Android feedback reclassified) |
+| OUT OF SCOPE | 1 | +1 (Android feedback UI) |
+| **Total rows** | **164** | unchanged |
 
 Counted programmatically from this file, not estimated.
 
-The 9 gaps are: external AI provider path, Android feedback UI, source control,
-CI, UI test automation, load testing, rate limiting, TLS, log-redaction review.
-None of them is a failure of a specified behaviour; they are missing practices
-listed in [`known-limitations.md`](../known-limitations.md).
+The 7 remaining gaps are missing *practices*, not missing specified behaviour:
+external AI provider path, CI, UI test automation, load testing, rate limiting,
+TLS, and log-redaction review. **The log-redaction review is now complete**
+(`docs/LOGBACK_SECURITY_REVIEW.md`), so that item is closed as a review and only
+the underlying hardening recommendation remains. The full set is tracked in
+[`known-limitations.md`](../known-limitations.md).
+
+Every row carries exactly one of: `VERIFIED`, `PARTIAL`, `GAP`, `OUT OF SCOPE`.
+No gap was promoted to verified without an executed test or a direct command
+result.

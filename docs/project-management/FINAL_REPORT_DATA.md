@@ -81,9 +81,10 @@ backups, rate limiting, multi-currency, refresh tokens, e-mail flows. See
 | Measure | Value |
 |---|---|
 | Requirement rows traced | 164 |
-| Verified | 147 |
+| Verified | 148 |
 | Partial | 8 |
-| Gap | 9 |
+| Gap | 7 |
+| Out of scope | 1 |
 
 Traceability in [`REQUIREMENT_TRACEABILITY.md`](REQUIREMENT_TRACEABILITY.md).
 
@@ -122,8 +123,9 @@ See [`EFFORT_DATA_GAP.md`](EFFORT_DATA_GAP.md).
 | Occurred and fixed | 3 |
 | Retired | 5 |
 
-Top open risks: no CI (R-10), log redaction unreviewed (R-06), no backups
-(R-12), no rate limiting (R-13), no source control (R-15).
+Top open risks: no CI (R-10), no backups (R-12), no rate limiting (R-13), no
+TLS (R-16). Log redaction (R-06) and source control (R-15) are now **retired** —
+both reviews were completed and the repository now exists.
 
 Full audit in [`RISK_AUDIT.md`](RISK_AUDIT.md).
 
@@ -251,8 +253,9 @@ See [`PROJECT_CLOSURE.md`](PROJECT_CLOSURE.md) section 2.
 
 ## 16. Limitations
 
-18 limitations recorded. The five production gaps: **CI (L-01), TLS (L-02),
-backups (L-03), rate limiting (L-04), log redaction (L-05)**. Full list in
+18 limitations recorded. Four production gaps remain **open**: **CI (L-01),
+TLS (L-02), backups (L-03), rate limiting (L-04)**. L-05, log-redaction review,
+is **closed** — the review was performed and no secret is logged. Full list in
 [`FINAL_PROJECT_STATUS.md`](FINAL_PROJECT_STATUS.md) section 7.
 
 ## 17. Project closure
@@ -262,12 +265,12 @@ backups (L-03), rate limiting (L-04), log redaction (L-05)**. Full list in
 | Functionality | Complete |
 | Testing | Complete — 385 checks, 0 failures |
 | Deployment | Verified from clean state |
-| Documentation | Complete — 2 minor open items |
-| Defects | 3 found, 3 fixed |
+| Documentation | Complete — 28 files, 8 discrepancies all resolved or classified |
+| Defects | 5 code defects found, 5 fixed |
 | Risks | 0 high open |
 | Effort/schedule history | **Not reconstructible** |
-| Source control | **Absent** |
-| Production hardening | **Not undertaken** |
+| Source control | **Established** — baseline `59cc2a0`, tag `v1.0.0-academic-final`. History permanently unavailable |
+| Production hardening | **Partly undertaken** — 4 gaps open, 1 closed |
 
 ## 18. Statements that must NOT be made
 

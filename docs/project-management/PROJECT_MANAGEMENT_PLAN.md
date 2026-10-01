@@ -232,9 +232,10 @@ Fully specified in
 | Measure | Value |
 |---|---|
 | Requirement rows traced | 164 |
-| Verified | 147 |
+| Verified | 148 |
 | Partially verified | 8 |
-| Gap | 9 |
+| Gap | 7 |
+| Out of scope | 1 |
 | Acceptance tests executed | 385 checks, 0 failures |
 
 Acceptance was evidence-driven: every verified row names the test that proves
@@ -263,7 +264,7 @@ Assessed only against practices with evidence in this repository.
 | Effort estimation | **Absent** — not recorded |
 | Quality assurance | **Strong** — 5 automated suites, 385 checks, all passing |
 | Risk management | **Established** — scored register, verified, 3 real occurrences handled |
-| Configuration management | **Partial** — excellent schema/env control, no source control |
+| Configuration management | **Partial** — strong schema/env control and a Git repository with a tagged baseline; no pre-commit history exists |
 | Communication | **Not recorded** |
 | Monitoring | **Build-time only** |
 | Change management | **Partial** — schema/config strong, code change controls absent |

@@ -8,18 +8,34 @@ documentation.
 
 | Field | Value |
 |---|---|
-| Baseline ID | `BASELINE-2026-10-01-A` |
-| Date | 2026-10-01 (final audit run 14:46–14:50 local) |
+| Baseline ID | `BASELINE-2026-10-01-B` (supersedes `-A`, which predated version control) |
+| Date | 2026-10-01 (final verification 15:21 local; baseline commit 15:22 local) |
 | Project root | `C:\Users\Administrator\AndroidStudioProjects\expense_management` |
-| Git commit | **NOT RECORDED — project is not a Git repository** |
-| Branch | **NOT RECORDED** — no `.git` directory exists |
+| Git commit | **`59cc2a039c310f7ae4ca09a74bdc250a4b6ea546`** |
+| Commit message | `chore: establish verified academic project baseline` |
+| Branch | `main` |
+| Remote | `https://github.com/HoangKhai1612/expense_management.git` |
+| Parent commit | `2c4371be5e69446fdb26979e2eb4ae2b505bb308` ("Initial commit", GitHub template README) |
+| Tag | `v1.0.0-academic-final` → `59cc2a0` |
+| Local vs remote | `0 0` — fully synchronised, fast-forward push, no force |
 | Deployment mode | Docker Compose (containerised) |
 
-> **Finding CF-01.** There is no `.git` directory anywhere in the project or its
-> parents, so there is no commit history, no branch, no tag and no authorship
-> record. Git 2.55.0 is installed at `C:\Program Files\Git\cmd\git.exe` but is not
-> on `PATH`, and the repository was never initialised. This is a genuine gap
-> against the source-control requirement and is not recoverable retrospectively.
+### History notice — mandatory reading
+
+> This repository baseline was established **after** the main development period.
+> It does **not** represent the complete historical development process.
+>
+> The project was **not** under version control during development. Consequently
+> **historical development provenance is `UNKNOWN / NOT RECORDED`**: no commit
+> history, authorship, schedule, effort or velocity data exists for the
+> development period, and none can be reconstructed.
+>
+> What exists is: one preserved GitHub template commit (`2c4371b`, containing a
+> 2-line README) and this verified baseline (`59cc2a0`). Future development is
+> fully version-controlled from this point.
+
+This notice is reproduced in the baseline commit message itself so it travels
+with the repository.
 
 ## Component versions
 
@@ -46,13 +62,15 @@ documentation.
 | `personal-finance-ai-admin` | 0.1.0 | `deb90825248e` | 21.3 MB |
 | `postgres` | 16-alpine | `721873c34ceb` | 116 MB |
 
-## Container status (clean rebuild, 2026-10-01 14:47)
+## Container status (clean rebuild, 2026-10-01 15:21)
+
+Verified after `docker compose down` → `build` → `up -d`:
 
 | Container | Status | Ports |
 |---|---|---|
-| `finai-postgres` | healthy | 5433→5432 |
-| `finai-backend` | healthy | 8081→8081 |
-| `finai-admin-web` | healthy | 5173→80 |
+| `finai-postgres` | **healthy** | 5433→5432 |
+| `finai-backend` | **healthy** | 8081→8081 |
+| `finai-admin-web` | **healthy** | 5173→80 |
 
 ## Schema state
 
@@ -63,7 +81,8 @@ documentation.
 
 ## Test baseline
 
-Every row was executed during the final audit, not inherited.
+Every row was executed during the final verification pass on 2026-10-01,
+immediately before the baseline commit. Not inherited from earlier runs.
 
 | Suite | Command | Result |
 |---|---|---|
@@ -74,11 +93,25 @@ Every row was executed during the final audit, not inherited.
 | Android debug APK | same | `app-debug.apk`, 20,318,592 bytes |
 | E2E API | `tests/e2e-api-tests.ps1` | **160/160 passed** |
 | Admin contract | `tests/admin-web-contract.ps1` | **102/102 passed** |
-| Docker clean rebuild | `docker compose down && build && up -d` | 3 images built, 3 containers healthy |
+| Docker clean rebuild | `docker compose down && build && up -d` | 3 images built, **3 containers healthy** |
 | Backend log scan | `docker compose logs backend` | 0 ERROR / Exception lines |
 
-Result CSVs: `tests/results/e2e-20261001-144857.csv`,
-`tests/results/admin-web-contract-20261001-144700.csv`.
+**Grand total: 385 automated checks, 0 failures.**
+
+Result CSVs from this run: `tests/results/e2e-20261001-152127.csv`,
+`tests/results/admin-web-contract-20261001-152133.csv`.
+
+## Repository baseline
+
+| Measure | Value |
+|---|---|
+| Files in baseline commit | 232 |
+| Lines added | 25,136 |
+| Commits on `main` | 2 (template + baseline) |
+| Secrets committed | **0** |
+| Binary/build artefacts committed | **0** (build outputs correctly ignored) |
+| Gradle wrapper jar committed | **Yes** — required for a fresh clone to build |
+| `.env` committed | **No** |
 
 ## Known limitations at baseline
 
@@ -87,15 +120,17 @@ Carried forward and re-verified; see
 
 | # | Limitation | Status |
 |---|---|---|
-| L-01 | No CI pipeline | Open |
-| L-02 | No TLS termination | Open |
-| L-03 | No production backup strategy | Open |
-| L-04 | No rate limiting on login or AI | Open |
-| L-05 | Log-redaction review not completed | Open |
-| L-06 | No UI test automation | Open |
-| L-07 | No source control (no Git repository) | Open — found by this audit |
-| L-08 | No Android feedback UI | Open — found by this audit |
-| L-09 | `/api/auth/me` undocumented | Open — found by this audit |
+| L-01 | No CI pipeline | **Open** |
+| L-02 | No TLS termination | **Open** |
+| L-03 | No production backup strategy | **Open** |
+| L-04 | No rate limiting on login or AI | **Open** |
+| L-05 | Log-redaction review not completed | **CLOSED** — see `docs/LOGBACK_SECURITY_REVIEW.md` |
+| L-06 | No UI test automation | **Open** |
+| L-07 | No source control (no Git repository) | **CLOSED going forward** — repository, remote, baseline and tag now exist. Historical provenance remains `UNKNOWN / NOT RECORDED` |
+| L-08 | No Android feedback UI | **Closed by classification** — *Out of current academic scope*; see `DISCREPANCY_REPORT.md` D-03 |
+| L-09 | `/api/auth/me` undocumented | **CLOSED** — fully documented in `docs/api-reference.md` |
+
+Four limitations closed in this pass; four production gaps remain open.
 
 ## Environment requirements
 

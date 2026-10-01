@@ -119,15 +119,17 @@ be produced, with the reason stated.
 | # | Item | Status | How to produce |
 |---|---|---|---|
 | 10.1 | Baseline record | **AVAILABLE** | `docs/project-management/BASELINE.md` |
-| 10.2 | Requirement traceability | **AVAILABLE** | 164 rows, 147 verified |
+| 10.2 | Requirement traceability | **AVAILABLE** | 164 rows, 148 verified, 8 partial, 7 gap, 1 out of scope |
 | 10.3 | Quality plan | **AVAILABLE** | `docs/project-management/QUALITY_PLAN.md` |
-| 10.4 | Risk register | **AVAILABLE** | 17 risks, scored, with occurrences |
+| 10.4 | Risk register | **AVAILABLE** | 18 risks, scored, with occurrences |
 | 10.5 | Metrics | **AVAILABLE** | Measured / derived / unavailable, clearly separated |
-| 10.6 | Configuration baseline | **AVAILABLE** | Includes the missing-repository finding |
+| 10.6 | Configuration baseline | **AVAILABLE** | Includes the source-control resolution |
 | 10.7 | Test evidence | **AVAILABLE** | Every suite with command, date, environment |
-| 10.8 | **Git history** | **NOT AVAILABLE** | No repository exists. Do not fabricate a graph |
-| 10.9 | **Burndown or Gantt chart** | **NOT AVAILABLE** | No schedule or effort data exists |
-| 10.10 | **Sprint artefacts** | **NOT AVAILABLE** | No Agile process was used |
+| 10.8 | Secret scan report | **AVAILABLE** | `docs/SECRET_SCAN_REPORT.md` — 0 secrets committed |
+| 10.9 | Logging security review | **AVAILABLE** | `docs/LOGBACK_SECURITY_REVIEW.md` — 0 secrets logged |
+| 10.10 | **Git history** | **PARTIAL** | Repository exists with tag `v1.0.0-academic-final`; **development history does not exist**. Do not fabricate a graph |
+| 10.11 | **Burndown or Gantt chart** | **NOT AVAILABLE** | No schedule or effort data exists |
+| 10.12 | **Sprint artefacts** | **NOT AVAILABLE** | No Agile process was used |
 
 ## 11. Screenshots still to be captured
 

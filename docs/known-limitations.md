@@ -46,9 +46,23 @@ Data loss is unrecoverable.
 **No log aggregation or alerting.** Logs go to stdout. Actuator exposes metrics
 but nothing scrapes them. No traces.
 
-**Log redaction unverified.** The appender pattern is the Spring Boot default. A
-deliberate review for token and password leakage in log output has not been
-done.
+## Resolved limitations
+
+**Log redaction — RESOLVED 2026-10-01.** The review that was previously recorded
+as outstanding has now been performed: all 20 backend log statements were
+enumerated and inspected, a search confirmed no log call references a password,
+token, secret, API key or `Authorization` header, and the live runtime log was
+searched for the actual `.env` secret values with zero matches. Spring Boot's
+generated default security user was also tested and is non-exploitable (401 on
+two endpoints). Full analysis and five residual findings in
+[`LOGBACK_SECURITY_REVIEW.md`](LOGBACK_SECURITY_REVIEW.md).
+
+**Source control — RESOLVED 2026-10-01 (going forward).** The project is now on
+`main` at `https://github.com/HoangKhai1612/expense_management`, with a
+synchronised remote and the tag `v1.0.0-academic-final`. **Historical development
+provenance remains permanently unavailable** — no development-period history
+exists or can be reconstructed. See
+[`project-management/EFFORT_DATA_GAP.md`](project-management/EFFORT_DATA_GAP.md).
 
 ## Backend
 
