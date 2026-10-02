@@ -40,7 +40,7 @@ CHUONG_1B = [
     ("p", "Bộ kiểm thử đầu cuối được thiết kế để chạy lại được nhiều lần: mỗi lần chạy sinh dữ liệu người dùng và mã danh mục duy nhất, và các phép đối chiếu được tính tương đối so với dữ liệu nền. Nếu thiết kế không như vậy, bộ kiểm thử sẽ chỉ chạy được một lần và nhanh chóng trở nên vô dụng. Đây là điểm được ghi nhận khi rà soát rủi ro, với mã R-11 trong bảng 1.15."),
 
     ("h3", "1.5.5. Tiêu chí nghiệm thu"),
-    ("p", "Tiêu chí nghiệm thu được xác định trước khi viết mã và gồm bảy tiêu chí tại bảng 1.11. Nguyên tắc áp dụng là tiêu chí phải kiểm tra được bằng lệnh, không chấp nhận tiêu chí dạng đánh giá cảm tính. Chẳng hạn, tiêu chí “hệ thống ổn định” không dùng được, còn tiêu chí “bộ kiểm thử E2E đạt 160/160” thì có."),
+    ("p", "Tiêu chí nghiệm thu được xác định trước khi viết mã và gồm bảy tiêu chí tại bảng 1.11. Nguyên tắc áp dụng là tiêu chí phải kiểm tra được bằng lệnh, không chấp nhận tiêu chí dạng đánh giá cảm tính. Chẳng hạn, tiêu chí “hệ thống ổn định” không dùng được, còn tiêu chí “bộ kiểm thử E2E đạt 160/160” thì có. Bảy tiêu chí ở đây là cấp dự án; nghiệm thu ở cấp yêu cầu được đếm riêng trên ma trận truy vết 164 dòng, và hai cấp này không cộng vào nhau."),
 
     ("h3", "1.5.6. Kế hoạch xử lý lỗi"),
     ("p", "Quy trình xử lý lỗi gồm sáu bước: ghi nhận hiện tượng, tái hiện, tìm nguyên nhân gốc, khắc phục tối thiểu, kiểm thử hồi quy có kiểm chứng, và xác nhận sau khắc phục. Bước thứ năm là bước đặc thù của dự án và cũng là bước hay bị bỏ qua nhất trong thực tế."),
@@ -95,7 +95,7 @@ CHUONG_1B = [
     ("p", "Tần suất thực tế được điều chỉnh theo tính chất chỉ số. Chỉ số vận hành và chất lượng được kiểm tra ở mỗi lần triển khai. Chỉ số bảo mật được kiểm tra trước mỗi lần ghi thay đổi. Chỉ số phạm vi và rủi ro được rà soát ở các mốc nghiệm thu. Do dự án không có vòng lặp phát triển theo chu kỳ, không có tần suất theo tuần hoặc theo tháng."),
 
     ("h3", "1.7.5. Tiêu chí đánh giá"),
-    ("p", "Tiêu chí đánh giá được đặt trước khi đo. Đối với chất lượng, tiêu chí là không có lỗi trong bất kỳ bộ kiểm thử nào. Đối với vận hành, tiêu chí là cả ba container ở trạng thái khỏe. Đối với bảo mật, tiêu chí là không có bí mật nào trong kho mã nguồn. Đối với rủi ro, tiêu chí là không có rủi ro mức cao nào còn mở. Tất cả bốn tiêu chí này đều đạt tại thời điểm kiểm chứng cuối, ngoại trừ việc bốn rủi ro trung bình vẫn còn mở và được nêu rõ."),
+    ("p", "Tiêu chí đánh giá được đặt trước khi đo. Đối với chất lượng, tiêu chí là không có lỗi trong bất kỳ bộ kiểm thử nào. Đối với vận hành, tiêu chí là cả ba container ở trạng thái khỏe. Đối với bảo mật, tiêu chí là không có bí mật nào trong kho mã nguồn. Đối với rủi ro, tiêu chí là không có rủi ro mức cao nào còn mở. Cả bốn tiêu chí này đều đạt tại thời điểm kiểm chứng cuối. Cần nói rõ rằng tiêu chí rủi ro vẫn đạt dù bốn rủi ro còn mở, vì ba trong số đó thuộc mức trung bình và một thuộc mức thấp theo thang điểm tại chú thích bảng 1.15; tiêu chí được đặt ở mức cao chứ không đặt ở mức trung bình."),
 
     ("h2", "1.8. Kế hoạch quản lý dự án"),
     ("p", "Mục này mô tả cách tổ chức quản lý từng mảng công việc. Nguyên tắc áp dụng là chỉ mô tả những gì thực sự đã thực hiện và có bằng chứng. Những mảng không có hoạt động thực tế được ghi nhận là không có, thay vì trình bày một kế hoạch lý thuyết."),

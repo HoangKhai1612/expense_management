@@ -103,6 +103,23 @@ endpoints, so it is not exploitable.
 Full analysis, method and five residual hardening recommendations:
 [`../LOGBACK_SECURITY_REVIEW.md`](../LOGBACK_SECURITY_REVIEW.md).
 
+### R-07 — Secrets committed to the repository
+**L1 × I5 = 5 (Low)** · **Status: CONTROLLED**
+
+The risk was that a `.env` file or a live credential would be committed and
+become part of the permanent history. It is controlled by exclusion rules plus a
+pre-commit scan, not by care.
+
+Control: `.gitignore` excludes `.env` and the environment files; a scan of every
+tracked file for credential patterns returns 0 hits. The baseline commit carries
+0 secrets.
+
+This entry was absent from this file during the pre-submission audit of
+2026-10-02: the register ran R-01 to R-06 and then R-08, so R-07 was never
+written up even though the risk was tracked in the report's own register. It is
+restored here with the same likelihood, impact and status already recorded there.
+The gap is a documentation omission, not a change in the risk position.
+
 ### R-10 — No CI, so a failing change can land
 **L3 × I4 = 12 (Medium)** · **Status: OPEN, confirmed**
 

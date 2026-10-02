@@ -11,7 +11,7 @@ CHUONG_1 = [
     ("tbl", "Bảng 1.1. Thông tin chung về dự án",
      ["Hạng mục", "Nội dung", "Nguồn xác minh"],
      [
-        ["Tên dự án", "Hệ thống quản lý chi tiêu cá nhân được trợ lòng AI", "Mã nguồn, thư mục gốc"],
+        ["Tên dự án", "Personal Finance AI System (Hệ thống quản lý chi tiêu cá nhân có trợ lý AI)", "README.md, backend/pom.xml, admin-web/package.json"],
         ["Mã định danh", "finai", "Tên gói Java, tên container"],
         ["Mục đích", "Quản lý tài chính cá nhân kèm phân tích AI có ràng buộc dữ liệu thực", "Mục tiêu dự án"],
         ["Kho mã nguồn", "https://github.com/HoangKhai1612/expense_management.git", "Cấu hình Git remote"],
@@ -113,7 +113,7 @@ CHUONG_1 = [
         ["Ứng dụng di động", "Kotlin, Jetpack Compose", "Gradle 9.6.0", "Giao diện theo khuyến nghị kiến trúc [11]"],
         ["Bảng quản trị", "React, TypeScript, Vite", "Node 22", "Ứng dụng một trang"],
         ["Máy chủ web", "Nginx", "1.27-alpine", "Phục vụ tệp tĩnh và chuyển tiếp API"],
-        ["Trợ lý xác thực", "JWC JJWT", "Đi kèm", "Ký và kiểm tra token theo [12]"],
+        ["Trợ lý xác thực", "JJWT 0.12.6", "Đi kèm", "Ký và kiểm tra token theo [12]"],
         ["Kiểm thử", "JUnit 5, PowerShell", "—", "5 bộ kiểm thử tự động"],
         ["Công cụ đóng gói", "Docker Compose", "—", "Định nghĩa ứng dụng đa container theo [9]"],
      ], [3.0, 3.5, 2.8, 5.7]),
@@ -183,7 +183,8 @@ CHUONG_1 = [
         ["TC-5", "Kịch bản E2E đạt", "tests/e2e-api-tests.ps1", "160/160"],
         ["TC-6", "Stack triển khai khỏe", "docker compose ps", "3/3 healthy"],
         ["TC-7", "Không có bí mật trong kho mã nguồn", "Quét trước khi ghi", "0 bí mật"],
-     ], [1.5, 5.0, 4.5, 4.0]),
+      ], [1.5, 5.0, 4.5, 4.0]),
+    ("p", "Cần phân biệt hai cấp tiêu chí khác nhau, vì cách đếm của chúng không liên quan đến nhau và trộn lẫn hai cấp sẽ gây hiểu sai. Cấp thứ nhất là tiêu chí hoàn thành tại bảng 1.11: bảy tiêu chí ở cấp dự án, mỗi tiêu chí là một câu lệnh trả về mã thành công hoặc mã thất bại, và tiêu chí đạt khi lệnh đó chạy đúng. Cấp thứ hai là tiêu chí nghiệm thu ở cấp yêu cầu: mỗi dòng của ma trận truy vết mang một trạng thái riêng, và nghiệm thu xảy ra khi từng yêu cầu được gắn với bằng chứng. Bảy tiêu chí ở bảng 1.11 vì vậy không phải là tiêu chí nghiệm thu của bảy yêu cầu nào cả; chúng là cổng kiểm soát cho sản phẩm nói chung, trong khi kết quả nghiệm thu được đếm trên ma trận gồm 164 dòng và được trình bày tại bảng 1.17."),
 
     ("h2", "1.4. Ước lượng nỗ lực và thời gian biểu"),
 

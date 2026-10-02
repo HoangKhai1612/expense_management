@@ -76,5 +76,9 @@ android/screenshots/
 __pycache__/
 *.pyc
 
+# Audit output of the pre-submission check. The checks themselves live in
+# report/audit/ and are tracked; their generated reports are not a deliverable.
+report-validation/
+
 # Word lock files, left behind if Word is killed while a document is open
 ~$*.docx

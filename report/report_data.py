@@ -6,9 +6,12 @@ Khong co so lieu uoc luong.
 """
 
 PROJECT = {
-    "ten": "He thong quan ly chi tieu ca nhan ban duoc troi long AI",
+    # Ten chinh thuc lay tu README.md, backend/pom.xml va admin-web/package.json.
+    # "troi long" (tinh te) la loi chinh ta; dung "troi ly" (tro gia nhiem vu).
+    "ten": "Personal Finance AI System",
+    "ten_viet": "H\u1ec7 th\u1ed1ng qu\u1ea3n l\u00fd chi ti\u00eau c\u00e1 nh\u00e2n c\u00f3 tr\u1ee1 l\u00fd AI",
     "ten_khoa": "finai",
-    "muc_dich": "Quan ly tai chinh ca nhan kem phan tich AI co rang buoc du lieu that",
+    "muc_dich": "Qu\u1ea3n l\u00fd t\u00e0i ch\u00ednh c\u00e1 nh\u00e2n k\u00e8m ph\u00e2n t\u00edch AI c\u00f3 r\u00e0ng bu\u1ed9c d\u1eef li\u1ec7u th\u1eadt",
     "nguon_git": "https://github.com/HoangKhai1612/expense_management.git",
     "nhanh": "main",
     "commit": "175ce3bd96cf68251151be20a8e722520274bf71",
@@ -144,7 +147,7 @@ TAI_LIEU_THAM_KHAO = [
     "IEEE, IEEE Std 1012-2016 IEEE Standard for System, Software, and Hardware Verification and Validation, Institute of Electrical and Electronics Engineers, Piscataway, NJ, 2016. ISBN 978-1-5044-1812-6.",
     "OWASP Foundation, OWASP Top 10:2021, OWASP Foundation, 2021. [Online]. Available: https://owasp.org/Top10/en/",
     "OWASP Foundation, OWASP Application Security Verification Standard 5.0.0, OWASP Foundation, 2025. [Online]. Available: https://owasp.org/www-project-application-security-verification-standard/",
-    "VMware, Spring Boot 3.5 System Requirements and Reference Documentation, 2025. [Online]. Available: https://docs.spring.io/spring-boot/3.5/system-requirements.html",
+    "VMware / Broadcom, Spring Boot 3.5 System Requirements and Reference Documentation, 2025. [Online]. Available: https://docs.spring.io/spring-boot/3.5/system-requirements.html",
     "Docker Inc., Compose Specification and Compose File Reference, 2025. [Online]. Available: https://docs.docker.com/compose/",
     "Redgate, Flyway Documentation, 2025. [Online]. Available: https://documentation.red-gate.com/flyway",
     "Android Open Source Project, Android Developers - Architecture Recommendations, Google LLC, 2025. [Online]. Available: https://developer.android.com/topic/architecture",
@@ -154,13 +157,13 @@ TAI_LIEU_THAM_KHAO = [
 ]
 
 VIET_TAT = [
-    ("AI", "Artificial Intelligence - Tri tri nhan tao"),
-    ("API", "Application Programming Interface - Giao dien lap trinh ung dung"),
-    ("CSDL", "Co so du lieu"),
-    ("E2E", "End-to-End - Kiem thu dau toan he thong"),
-    ("JWT", "JSON Web Token - Token xac thuc nguoi dung"),
-    ("REST", "Representational State Transfer - Kien truc dich vu web"),
-    ("SPA", "Single Page Application - Ung dung mot trang"),
-    ("UC", "Use Case - Use case"),
-    ("V&V", "Verification and Validation - Xac minh va xac nhan"),
+    ("AI", "Artificial Intelligence - Trí tuệ nhân tạo"),
+    ("API", "Application Programming Interface - Giao diện lập trình ứng dụng"),
+    ("CSDL", "Cơ sở dữ liệu"),
+    ("E2E", "End-to-End - Kiểm thử đầu toàn hệ thống"),
+    ("JWT", "JSON Web Token - Token xác thực người dùng"),
+    ("REST", "Representational State Transfer - Kiến trúc dịch vụ web"),
+    ("SPA", "Single Page Application - Ứng dụng một trang"),
+    ("UC", "Use Case - Tình huống sử dụng"),
+    ("V&V", "Verification and Validation - Xác minh và xác nhận"),
 ]
