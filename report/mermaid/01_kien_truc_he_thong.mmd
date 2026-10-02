@@ -1,0 +1,19 @@
+flowchart TB
+    subgraph T1["Tầng trình bày và bảo mật"]
+        direction LR
+        A["Ứng dụng Android<br/>Kotlin, Jetpack Compose"] --> SEC["Bảo mật<br/>Spring Security<br/>xác thực JWT"]
+        W["Bảng quản trị<br/>React, TypeScript"] --> SEC
+    end
+
+    subgraph T2["Tầng ứng dụng - Spring Boot 3.5.16, Java 21"]
+        direction LR
+        CTRL["Lớp điều khiển<br/>10 nhóm API"] --> SVC["Lớp nghiệp vụ<br/>8 miền nghiệp vụ"] --> AI["Mô-đun AI<br/>phân tích có ràng buộc"]
+    end
+
+    subgraph T3["Tầng dữ liệu"]
+        direction LR
+        DB[("PostgreSQL 16 - 11 bảng, 9 migration Flyway")]
+    end
+
+    T1 -->|"HTTPS, JSON, Bearer token"| T2
+    T2 -->|"JPA, Hibernate, đọc dữ liệu thật qua snapshot"| T3

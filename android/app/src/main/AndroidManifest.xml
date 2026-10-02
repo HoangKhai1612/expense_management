@@ -2,9 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- The app talks to the backend over HTTP; cleartext is permitted only for the
-         development hosts, never for a production domain. -->
+    <!-- The app talks to the backend over plain HTTP. Cleartext is enabled
+         application-wide via android:usesCleartextTraffic, because there is no
+         network security config: the default API base URL is http://10.0.2.2:8081
+         and restricting cleartext per host would break LAN testing on a physical
+         device. This is a debug-build concession; TLS is an open production gap. -->
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Android 16+ blocks app traffic to private-range addresses unless this is
+         declared. The emulator reaches the developer machine at 10.0.2.2, which the
+         platform classifies as local network. -->
+    <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK" />
 
     <application
         android:name=".FinaiApplication"

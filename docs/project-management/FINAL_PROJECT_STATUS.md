@@ -217,8 +217,15 @@ during the finalisation pass. All are stated as open in every relevant document.
 | Spring default-user warning | Informational | Security review | Closed, verified non-exploitable |
 | Android notification framing | Low | Documentation audit | Closed, corrected |
 | Android feedback UI | Low | Documentation audit | Closed by classification, out of scope |
+| Android app cannot reach the backend on Android 16+ | Medium — platform blocks traffic to private-range hosts | Final verification pass, 2026-10-02 | Fixed in source; verified by build and unit tests. **Not yet verified on an Android 16 device** |
 
-**5 code defects fixed, 4 documentation/config items closed.**
+**5 code defects fixed, 4 documentation/config items closed, 1 further defect found
+and fixed during the 2026-10-02 verification pass.**
+
+The tenth item was added after the tagged baseline was established. It is
+recorded here so the defect count in the academic report stays traceable to this
+document. It could not surface in unit testing, because unit tests do not run on
+a real device.
 
 ---
 

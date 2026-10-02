@@ -1,0 +1,29 @@
+flowchart TB
+    subgraph Planning["Lập kế hoạch kiểm thử"]
+        direction LR
+        A1["Ma trận truy vết yêu cầu<br/>164 dòng"] --> A2["Xác định tiêu chí<br/>nghiệm thu"] --> A3["Phân tầng kiểm thử<br/>Đơn vị / Tích hợp /<br/>E2E / Hợp đồng"]
+    end
+
+    subgraph Execution["Thực thi"]
+        direction LR
+        B1["Kiểm thử đơn vị<br/>Backend 98"]
+        B2["Kiểm thử tích hợp<br/>Backend 15"]
+        B3["Kiểm thử Android<br/>10"]
+        B4["Hợp đồng API<br/>Admin 102"]
+        B5["Kiểm thử E2E<br/>160"]
+    end
+
+    subgraph Defect["Xử lý khi phát hiện lỗi"]
+        direction LR
+        C1["Ghi nhận<br/>hiện tượng"] --> C2["Tìm nguyên nhân gốc<br/>Root cause"] --> C3["Khắc phục"] --> C4["Kiểm thử hồi quy<br/>chứng minh thất bại<br/>trên lỗi gốc"]
+    end
+
+    A3 --> Execution
+    Execution --> D["Tổng hợp<br/>385 kiểm tra, 0 lỗi"]
+    B1 -.-> C1
+    C4 -.->|"xác nhận"| D
+    C4 -.-> A1
+    D --> E["Nghiệm thu<br/>và đóng dự án"]
+
+    G["Sai lệch được phát hiện trong kiểm toán:<br/>giả định chưa kiểm chứng trong tài liệu,<br/>biến đổi thiếu kiểm soát"]
+    C2 -.- G

@@ -1,0 +1,17 @@
+flowchart LR
+    subgraph Defects["Năm lỗi được phát hiện"]
+        direction TB
+        D1["D-1: AiAnalyst thêm phần tử<br/>vào List bất biến List.of<br/>→ UnsupportedOperationException"]
+        D2["D-2: Format.kt định nghĩa trùng<br/>formatInstant, bản sai che khuất"]
+        D3["D-3: Healthcheck admin dùng localhost<br/>→ IPv6 ::1, nginx chỉ lắng nghe IPv4"]
+        D4["D-4: gradle-wrapper.jar bị .gitignore loại<br/>→ bản sao mới không build được Android"]
+        D5["D-5: .kilo sẽ bị commit<br/>→ thành submodule"]
+    end
+
+    subgraph Process["Quy trình xử lý áp dụng cho cả năm lỗi"]
+        direction TB
+        P1["Xác định nguyên nhân gốc"] --> P2["Khắc phục tối thiểu"] --> P3["Tạo kiểm thử hồi quy"] --> P4["Tạm hoàn nguyên bản sửa"] --> P5["Xác nhận kiểm thử thất bại<br/>với số lỗi quan sát được"] --> P6["Khôi phục bản sửa<br/>và kiểm thử lại"] --> P7["Đóng lỗi"]
+    end
+
+    Defects --> P1
+    P7 --> SUM["Kết quả<br/>5 lỗi mã nguồn được phát hiện và khắc phục<br/>4 mục tài liệu và cấu hình được đóng"]

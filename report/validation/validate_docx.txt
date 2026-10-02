@@ -1,0 +1,101 @@
+[OK] Goi tai lieu hop le (zip integrity ok)
+[OK] Co quan he tai lieu (document.xml.rels)
+[OK] So anh nhung = so file nguon: 11 / 11
+[OK] So muc cap 1 (Chuong/Phu luc): 12
+[OK] So muc cap 2: 31
+[OK] So muc cap 3: 119
+[OK] So muc cap 4: 2
+[OK] Co muc: LỜI MỞ ĐẦU
+[OK] Co muc: CHƯƠNG 1
+[OK] Co muc: CHƯƠNG 2
+[OK] Co muc: CHƯƠNG 3
+[OK] Co muc: CHƯƠNG 4
+[OK] Co muc: TÀI LIỆU THAM KHẢO
+[OK] Co muc: PHỤ LỤC
+[OK] Co Phu luc A
+[OK] Co Phu luc B
+[OK] Co Phu luc C
+[OK] Co Phu luc D
+[OK] Co Phu luc E
+[OK] Co caption hop le: Bảng 1.1. Thông tin chung về dự án
+[OK] Co caption hop le: Hình 1.1. Kiến trúc ba tầng của hệ thống quản lý c
+[OK] Co caption hop le: Bảng 1.2. Mục tiêu dự án và tiêu chí kiểm chứng
+[OK] Co caption hop le: Bảng 1.3. Phạm vi chức năng trong dự án
+[OK] Co caption hop le: Bảng 1.4. Nội dung ngoài phạm vi dự án
+[OK] Co caption hop le: Bảng 1.5. Ma trận bên liên quan
+[OK] Co caption hop le: Bảng 1.6. Sản phẩm bàn giao của dự án
+[OK] Co caption hop le: Bảng 1.7. Công nghệ sử dụng trong dự án
+[OK] Co caption hop le: Bảng 1.8. Công cụ sử dụng theo mục đích
+[OK] Co caption hop le: Hình 1.2. Chu trình quản lý dự án của hệ thống quả
+[OK] Co caption hop le: Bảng 1.9. Bốn giai đoạn của dự án
+[OK] Co caption hop le: Bảng 1.10. Sản phẩm bàn giao theo giai đoạn
+[OK] Co caption hop le: Bảng 1.11. Tiêu chí hoàn thành và cách kiểm chứng
+[OK] Co caption hop le: Bảng 1.12. Phân loại dữ liệu dự án theo khả năng k
+[OK] Co caption hop le: Bảng 1.13. Tiêu chí chất lượng và phép đo
+[OK] Co caption hop le: Bảng 1.14. Kế hoạch kiểm thử chi tiết
+[OK] Co caption hop le: Hình 1.3. Quy trình kiểm thử và vòng lặp xử lý lỗi
+[OK] Co caption hop le: Hình 1.4. Quy trình xử lý lỗi áp dụng cho các mục 
+[OK] Co caption hop le: Hình 1.5. Quy trình quản lý rủi ro áp dụng cho dự 
+[OK] Co caption hop le: Bảng 1.15. Sổ rủi ro của dự án
+[OK] Co caption hop le: Bảng 1.16. Các chỉ số theo dõi
+[OK] Co caption hop le: Bảng 1.17. Tình trạng truy vết yêu cầu
+[OK] Co caption hop le: Hình 1.6. Dòng chảy quản lý cấu hình của dự án
+[OK] Co caption hop le: Bảng 1.18. Cấu hình nền tảng cuối cùng
+[OK] Co caption hop le: Bảng 2.1. Đối chiếu sản phẩm bàn giao với kế hoạch
+[OK] Co caption hop le: Hình 2.1. Lược đồ cơ sở dữ liệu thực tế gồm 11 bản
+[OK] Co caption hop le: Hình 2.2. Mô-đun AI từ chối đưa ra con số khi dữ l
+[OK] Co caption hop le: Hình 2.3. Trạng thái ba container sau khi dựng từ 
+[OK] Co caption hop le: Bảng 2.2. Phát hiện chính của từng lớp xem xét lại
+[OK] Co caption hop le: Bảng 2.3. Tổng hợp mười mục lỗi và cách khắc phục
+[OK] Co caption hop le: Bảng 2.4. Tổng hợp kết quả kiểm thử cuối cùng
+[OK] Co caption hop le: Hình 2.4. Chuỗi nghiệm thu và tuyên bố đóng dự án 
+[OK] Co caption hop le: Hình 3.1. Xác thực đăng nhập quản trị và tài liệu 
+[OK] Co caption hop le: Bảng 3.1. Bốn khoảng trống vận hành còn mở
+[OK] Co caption hop le: Bảng A.1. Tóm tắt ma trận truy vết yêu cầu
+[OK] Co caption hop le: Bảng B.1. Sổ rủi ro của dự án
+[OK] Co caption hop le: Bảng C.1. Tổng hợp bằng chứng kiểm thử
+[OK] Co caption hop le: Bảng D.1. Danh mục sản phẩm bàn giao
+[OK] Co caption hop le: Bảng E.1. Kết quả nghiệm thu cuối cùng
+[OK] Danh so Bảng chuong 1: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+[OK] Danh so Bảng chuong 2: [1, 2, 3, 4]
+[OK] Danh so Bảng chuong 3: [1]
+[OK] Danh so Bảng chuong A: [1]
+[OK] Danh so Bảng chuong B: [1]
+[OK] Danh so Bảng chuong C: [1]
+[OK] Danh so Bảng chuong D: [1]
+[OK] Danh so Bảng chuong E: [1]
+[OK] Danh so Hình chuong 1: [1, 2, 3, 4, 5, 6]
+[OK] Danh so Hình chuong 2: [1, 2, 3, 4]
+[OK] Danh so Hình chuong 3: [1]
+[OK] So hinh co caption: 11 / 11 file
+[OK] So bang co caption: 28
+[OK] CAPTION khop: tep=39, docx=39
+[OK] CAPTION dung thu tu docx
+[OK] Tieu de khong khop so chuong: khong co
+[OK] So bang: 30
+[OK] Bang chi co tieu de (khong co du lieu): []
+[OK] So o rong trong bang: 0
+[OK] Hang khong khop so cot: []
+[OK] Tham chieu khong ton tai: khong co
+[OK] So tham chieu chinh xac: 39; hinh/bang chua duoc tham chieu: 0 []
+[OK] Khop trich danh [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14] voi danh muc [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+[OK] Danh muc lien tuc tu 1 den 14
+[OK] So o trong bia can nop: 5 (nen la 5 truoc khi nop)
+[OK] Da dien ten nguoi thuc hien
+[OK] Chan trang khong con huong dan nhap F9: ['1']
+[OK] Bang vuot khung chu: khong co
+[OK] Hinh vuot khung trang: khong co
+[OK] Khung chu: 16.0 x 25.2 cm; rong nhat cua bang: 15.9 cm
+[OK] Mau chu: {'000000'}
+[OK] Khoi trang: 21.0 x 29.7 cm
+[OK] Nhat quan so lieu [385] (tong so kiem tra)
+[OK] Nhat quan so lieu [164] (so dong yeu cau)
+[OK] Nhat quan so lieu [148] (so dong da xiem minh)
+[OK] Nhat quan so lieu [98] (kiem thu don vi backend)
+[OK] Nhat quan so lieu [102] (hop dong admin)
+[OK] Nhat quan so lieu [160] (E2E)
+[OK] Nhat quan so lieu [v1.0.0-academic-final] (the phat hanh)
+[OK] Khong con so lieu cu: khong co
+[OK] Khong con chu tieng Viet khong dau: khong co
+[OK] So truong Word (TOC/PAGE/SEQ): 245
+[OK] Truong SEQ cho caption: 39 / 39

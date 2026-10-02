@@ -1,0 +1,43 @@
+flowchart TB
+    subgraph Row1["Kho mã nguồn và kiểm soát"]
+        direction LR
+        G["Git<br/>nhánh main<br/>tag v1.0.0-academic-final"]
+        C1["Kiểm tra bí mật<br/>quét trước khi commit"]
+        C2["Theo dõi file .gitignore"]
+        C3["Mã băm kiểm tra tra cứu<br/>Flyway checksum"]
+    end
+
+    subgraph Row2["Xây dựng"]
+        direction LR
+        B1["Maven<br/>backend JAR"]
+        B2["Gradle<br/>APK Android"]
+        B3["Vite<br/>bundle Admin Web"]
+        B4["Docker image<br/>3 image"]
+    end
+
+    subgraph Row3["Môi trường chạy"]
+        direction LR
+        E1["Biến môi trường<br/>từ file .env"]
+        E2["Docker Compose<br/>3 container"]
+    end
+
+    subgraph Row4["Bàn giao"]
+        direction LR
+        R1["Baseline commit<br/>+ thẻ phát hành"]
+        R2["Tài liệu<br/>28 tệp markdown"]
+        R3["Bằng chứng kiểm thử<br/>CSV kết quả"]
+    end
+
+    G --> C1 --> C2
+    C3 --> G
+    Row1 --> Row2
+    B1 & B3 --> B4
+    E1 --> E2
+    B4 --> E2
+    Row2 --> Row3
+    Row3 --> R3
+    C1 & C2 & C3 --> R1
+    G --> R2
+
+    NOTE["Lưu ý trung thực:<br/>Quản lý cấu hình chỉ có hiệu lực<br/>từ điểm baseline trở đi.<br/>Không có lịch sử phát triển trước đó."]
+    R1 --- NOTE

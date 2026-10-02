@@ -1,0 +1,31 @@
+flowchart TB
+    subgraph Top["Nhận diện và phân tích"]
+        direction LR
+        R["Rủi ro được nhận diện"] --> A["Phân tích<br/>Khả năng xảy ra L<br/>× Mức độ ảnh hưởng I"] --> S["Điểm rủi ro<br/>Score = L × I"]
+    end
+
+    C{"Chọn chiến lược ứng phó"}
+
+    subgraph Resp["Các chiến lược ứng phó"]
+        direction LR
+        M1["Giảm thiểu - Mitigate<br/>Áp dụng kiểm soát kỹ thuật"]
+        M2["Chuyển giao - Transfer<br/>Giới hạn phạm vi học thuật"]
+        M3["Tránh - Avoid<br/>Thiết kế lại để loại bỏ"]
+        M4["Chấp nhận - Accept<br/>Ghi nhận và theo dõi"]
+    end
+
+    subgraph Bottom["Kiểm chứng và theo dõi"]
+        direction LR
+        V["Kiểm chứng kiểm soát<br/>bằng kiểm thử tự động"] --> T["Theo dõi trạng thái<br/>Open / Mitigated /<br/>Occurred / Retired"] --> U["Cập nhật sổ rủi ro<br/>và báo cáo"]
+    end
+
+    S --> C
+    C -->|"Score cao"| M1
+    C -->|"Score cao"| M2
+    C -->|"Score vừa"| M3
+    C -->|"Score thấp"| M4
+    Resp --> V
+    U -.->|"Rủi ro mới phát sinh"| R
+
+    RES["Kết quả tại dự án<br/>18 rủi ro, 0 rủi ro cao còn mở<br/>5 rủi ro đã xảy ra và được xử lý"]
+    T --- RES

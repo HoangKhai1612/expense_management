@@ -1,0 +1,173 @@
+{
+  "verified_at": "2026-10-01",
+  "verification_method": "web search returning publisher/DOI/ISBN-bearing pages; each entry cross-checked against at least one official registry",
+  "sources": [
+    {
+      "id": 1,
+      "type": "standard",
+      "authors": "Project Management Institute",
+      "title": "A Guide to the Project Management Body of Knowledge (PMBOK Guide) - Seventh Edition",
+      "publisher": "Project Management Institute, Inc.",
+      "year": 2021,
+      "place": "Newtown Square, PA",
+      "locator": "ANSI/PMI 99-001-2021; ISBN 978-1-62825-664-2",
+      "url": "https://www.pmi.org/standards/pmbok",
+      "verified_on": "https://www.pmi.org/-/media/pmi/documents/public/pdf/pmbok-standards/pmbok-guide-public-faqs-1-july-2021.pdf",
+      "claim_supported": "Risk and quality are project performance domains in the Seventh Edition; 12 principles; tailoring required; process groups and knowledge areas retained as models/methods/artifacts rather than as the organising structure."
+    },
+    {
+      "id": 2,
+      "type": "standard",
+      "authors": "Joint Task Force Transformation Initiative",
+      "title": "Guide for Conducting Risk Assessments, NIST Special Publication 800-30 Revision 1",
+      "publisher": "National Institute of Standards and Technology (NIST)",
+      "year": 2012,
+      "place": "Gaithersburg, MD",
+      "doi": "10.6028/NIST.SP.800-30r1",
+      "url": "https://doi.org/10.6028/NIST.SP.800-30r1",
+      "verified_on": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+      "claim_supported": "Risk = f(threats, vulnerabilities, impact, likelihood); risk management has four steps: framing, assessing, responding, monitoring."
+    },
+    {
+      "id": 3,
+      "type": "book",
+      "authors": "Barry W. Boehm, Chris Abts, A. Winsor Brown, Sunita Chulani, Bradford K. Clark, Ellis Horowitz, Ray Madachy, Donald J. Reifer, Bert Steece",
+      "title": "Software Cost Estimation with COCOMO II",
+      "publisher": "Prentice Hall PTR",
+      "year": 2000,
+      "place": "Upper Saddle River, NJ",
+      "isbn": "978-0-13-702576-3",
+      "url": "https://dl.acm.org/doi/book/10.5555/1795822",
+      "verified_on": "https://boehmcsse.org/tools/cocomo-ii/",
+      "claim_supported": "COCOMO II estimates cost, effort and schedule through three submodels of increasing fidelity; calibrated against 161 collected project data points."
+    },
+    {
+      "id": 4,
+      "type": "standard",
+      "authors": "ISO/IEC JTC 1/SC 7",
+      "title": "ISO/IEC/IEEE 12207:2017 Systems and software engineering - Software life cycle processes",
+      "publisher": "International Organization for Standardization",
+      "year": 2017,
+      "place": "Geneva",
+      "url": "https://www.iso.org/standard/63712.html",
+      "verified_on": "https://www.iso.org/standard/63712.html",
+      "withdrawn_on": "2026-04-29, superseded by ISO/IEC/IEEE 12207:2026",
+      "claim_supported": "Establishes a common framework for software life cycle processes, with processes, activities and tasks applied across acquisition, supply, development, operation, maintenance and disposal."
+    },
+    {
+      "id": 5,
+      "type": "standard",
+      "authors": "IEEE",
+      "title": "IEEE Std 1012-2016 IEEE Standard for System, Software, and Hardware Verification and Validation",
+      "publisher": "Institute of Electrical and Electronics Engineers",
+      "year": 2016,
+      "place": "Piscataway, NJ",
+      "isbn": "978-1-5044-1812-6",
+      "url": "https://standards.ieee.org/ieee/1012/5752/",
+      "verified_on": "https://ieeexplore.ieee.org/servlet/opac?punumber=8055460",
+      "superseded_by": "IEEE 1012-2024",
+      "claim_supported": "Verification provides objective evidence the product meets requirements (building the product correctly); validation provides evidence it solves the right problem and meets intended use (building the right product). The two are interrelated and complementary."
+    },
+    {
+      "id": 6,
+      "type": "web_reference",
+      "authors": "OWASP Foundation",
+      "title": "OWASP Top 10:2021",
+      "publisher": "OWASP Foundation",
+      "year": 2021,
+      "url": "https://owasp.org/Top10/en/",
+      "verified_on": "https://owasp.org/Top10/en/",
+      "claim_supported": "A01 Broken Access Control, A02 Cryptographic Failures, A03 Injection, A04 Insecure Design, A05 Security Misconfiguration, A06 Vulnerable and Outdated Components, A07 Identification and Authentication Failures, A08 Software and Data Integrity Failures, A09 Security Logging and Monitoring Failures, A10 SSRF."
+    },
+    {
+      "id": 7,
+      "type": "web_reference",
+      "authors": "OWASP Foundation",
+      "title": "OWASP Application Security Verification Standard (ASVS) 5.0.0",
+      "publisher": "OWASP Foundation",
+      "year": 2025,
+      "url": "https://owasp.org/www-project-application-security-verification-standard/",
+      "verified_on": "https://owasp.org/www-project-application-security-verification-standard/",
+      "claim_supported": "Provides a basis for testing application technical security controls and a requirements list for secure development, with versioned requirement identifiers."
+    },
+    {
+      "id": 8,
+      "type": "official_documentation",
+      "authors": "VMware / Broadcom",
+      "title": "Spring Boot 3.5 System Requirements and Reference Documentation",
+      "publisher": "VMware (Broadcom)",
+      "year": 2025,
+      "url": "https://docs.spring.io/spring-boot/3.5/system-requirements.html",
+      "verified_on": "https://docs.spring.io/spring-boot/3.5/system-requirements.html",
+      "claim_supported": "Spring Boot 3.5.16 requires at least Java 17 and is compatible with versions up to and including Java 25; Spring Framework 6.2.19 or above required; Maven 3.6.3 or later."
+    },
+    {
+      "id": 9,
+      "type": "official_documentation",
+      "authors": "Docker Inc.",
+      "title": "Docker Compose Specification and Compose File Reference",
+      "publisher": "Docker Inc.",
+      "year": 2025,
+      "url": "https://docs.docker.com/compose/",
+      "verified_on": "https://docs.docker.com/reference/compose-file/",
+      "claim_supported": "Compose defines a multi-container application from a single YAML file; services, networks, volumes and healthcheck are first-class declarations."
+    },
+    {
+      "id": 10,
+      "type": "official_documentation",
+      "authors": "Redgate",
+      "title": "Flyway Documentation - Migrations and Concepts",
+      "publisher": "Redgate",
+      "year": 2025,
+      "url": "https://documentation.red-gate.com/flyway",
+      "verified_on": "https://documentation.red-gate.com/flyway/reference/configuration",
+      "claim_supported": "Versioned migrations are applied once in order and validated by checksum; repeatable migrations re-run when their checksum changes."
+    },
+    {
+      "id": 11,
+      "type": "official_documentation",
+      "authors": "Android Open Source Project",
+      "title": "Android Developers - Jetpack Compose and Android Architecture Guidance",
+      "publisher": "Google LLC",
+      "year": 2025,
+      "url": "https://developer.android.com/topic/architecture",
+      "verified_on": "https://developer.android.com/topic/architecture/recommendations",
+      "claim_supported": "Recommended app layering (UI/data/domain), unidirectional data flow, and state hoisting for Compose."
+    },
+    {
+      "id": 12,
+      "type": "standard",
+      "authors": "IETF (Jones, Bradley, Jones)",
+      "title": "RFC 7519: JSON Web Token (JWT)",
+      "publisher": "Internet Engineering Task Force",
+      "year": 2015,
+      "place": "Newtown Square, PA",
+      "doi": "10.17487/RFC7519",
+      "url": "https://datatracker.ietf.org/doc/html/rfc7519",
+      "verified_on": "https://datatracker.ietf.org/doc/html/rfc7519",
+      "claim_supported": "JWT is a compact, URL-safe means of representing claims to be transferred between two parties; a JWS/JWE compact serialisation."
+    },
+    {
+      "id": 13,
+      "type": "official_documentation",
+      "authors": "PostgreSQL Global Development Group",
+      "title": "PostgreSQL 16 Documentation",
+      "publisher": "PostgreSQL Global Development Group",
+      "year": 2023,
+      "url": "https://www.postgresql.org/docs/16/",
+      "verified_on": "https://www.postgresql.org/docs/16/index.html",
+      "claim_supported": "NUMERIC(19,2) exact numeric representation; transaction isolation levels; used as the project database engine."
+    },
+    {
+      "id": 14,
+      "type": "official_documentation",
+      "authors": "Git Project",
+      "title": "Git Reference and Pro Git Book",
+      "publisher": "Git Project (Linus Torvalds, Junio C. Hamano, Scott Chacon and Ben Straub)",
+      "year": 2014,
+      "url": "https://git-scm.com/book/en/v2",
+      "verified_on": "https://git-scm.com/docs",
+      "claim_supported": "Commit, tag, branch, and the distinction between a local repository and a remote; used for the configuration baseline."
+    }
+  ]
+}

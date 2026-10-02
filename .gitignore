@@ -27,6 +27,10 @@ yarn-error.log*
 
 # ---- Android ----
 android/.gradle/
+# Root-level Gradle cache created when Gradle is invoked from the repository
+# root instead of android/. The wrapper must be run from android/; running it
+# from the root creates this cache and breaks the documented build command.
+.gradle/
 android/build/
 android/app/build/
 android/local.properties
@@ -61,3 +65,16 @@ desktop.ini
 # ---- Test evidence / logs ----
 logs/
 *.log
+
+# ---- Local artefacts not part of the deliverable ----
+# Screenshots captured ad hoc during local debugging. Not referenced by any
+# document, and not verified, so they must not be committed.
+screenshot.png
+android/screenshots/
+
+# Python bytecode from the report toolchain
+__pycache__/
+*.pyc
+
+# Word lock files, left behind if Word is killed while a document is open
+~$*.docx

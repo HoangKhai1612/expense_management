@@ -1,0 +1,109 @@
+BÁO CÁO KIỂM CHỨNG TÀI LIỆU BAOCAO.DOCX
+=========================================
+Ngay kiem chung : 02/10/2026
+Tep kiem chung  : baocao.docx (ban sao tai thu muc goc)
+Cong cu         : python-docx 1.2.0, Microsoft Word 16.0 (cap nhat truong)
+
+1. QUY TRINH
+------------
+Buoc 1. Bien dich noi dung tu report/content_*.py bang python-docx.
+       File dung report/build_docx.py.
+Buoc 2. Kiem chung truc truc bang report/validate_docx.py (101 muc kiem).
+Buoc 3. Mo tai lieu bang Microsoft Word de cap nhat truong
+       (muc luc, danh muc hinh, danh muc bang, so trang), roi luu lai.
+       File dung report/render_word.ps1.
+Buoc 4. Kiem chung lai sau khi Word luu, va kiem tra mục luc bang
+       report/check_toc.py.
+
+2. KET QUA KIEM CHUNG TRUC TRUC
+-------------------------------
+Tong so muc kiem : 101
+Dat              : 101
+Canh bao         : 0
+Loi              : 0
+
+Cau truc:
+  Muc cap 1 (Chuong / Phu luc)     : 12
+  Muc cap 2                       : 31
+  Muc cap 3                       : 119
+  Muc cap 4                       : 2
+  Bang                            : 30
+  Hinh nhung                      : 11
+  Truong Word                     : 448
+  Loi hien thi cua truong         : 0
+
+Danh muc sinh tu truong (da cap nhat trong Word):
+  Muc luc                         : 164 muc, co so trang thuc
+  Danh muc hinh                   : 11 / 11 hinh
+  Danh muc bang                   : 28 / 28 bang
+  Doan chua loi truong            : 0
+
+Khung trang:
+  So trang                        : 69
+  So tu                           : 23.212
+
+3. BO CUC
+---------
+Khung chu                        : 16,0 x 25,2 cm
+Bang rong nhat                   : 16,0 cm  (khong vuot khung)
+Bang chi co tieu de, thieu du lieu: 0
+O rong trong bang                : 0
+Hang khong khop so cot            : 0
+Hinh vuot khung trang             : 0
+Trang A4                         : 21,0 x 29,7 cm
+Chan trang                       : chi con so trang, khong con huong dan nhap F9
+
+4. BANG CHUNG THUC THI CHAY LAI NGAY 02/10/2026
+-----------------------------------------------
+Toan bo nam bo kiem thu duoc chay lai tu dau:
+
+  Kiem thu don vi - Backend        (mvn verify)                      98 / 0 loi
+  Kiem thu tich hop - Backend       (mvn verify)                      15 / 0 loi
+  Kiem thu hop dong API - Admin     (tests/admin-web-contract.ps1)   102 / 0 loi
+  Kiem thu dau cuoi - E2E           (tests/e2e-api-tests.ps1)         160 / 0 loi
+  Kiem thu don vi - Android         (gradlew testDebugUnitTest)        10 / 0 loi
+  ------------------------------------------------------------------------
+  Tong cong                                                          385 / 0 loi
+
+Ket qua trung khop voi lan kiem chung dau tien ngay 01/10/2026.
+Docker: 3/3 container healthy. Co so du lieu: 9 migration, 11 bang.
+
+Luu y moi truong: may chay dat mac dinh Java 8. Spring Boot yeu cau Java 17
+tro len, nen phai dat bien moi truong tro toi JDK 21 truoc khi chay lenh
+kiem thu backend. Day la dac diem cua may, khong phai loi du an.
+
+5. NHAT QUAN DU LIEU
+-------------------
+Tat ca so lieu lon deu duoc doi chieu voi nguon tai day du:
+  148 / 8 / 7 / 1  : dem truc tiep tu REQUIREMENT_TRACEABILITY.md
+  385 / 98 / 15 / 102 / 160 / 10 : FINAL_TEST_EVIDENCE.md va lan chay 02/10/2026
+  18 muc rui ro    : RISK_AUDIT.md (ma, diem K, H va diem rui ro giu nguyen)
+  10 muc loi       : FINAL_PROJECT_STATUS.md muc 9
+                     5 ma nguon + cau hinh, 4 muc tai lieu, 1 muc phat hien
+                     trong dot kiem chung cuoi
+  4 khoang trong van hanh con mo : FINAL_PROJECT_STATUS.md
+
+Ghi chu: FINAL_REPORT_DATA.md muc 15 ghi "147 of 164". So nay cu, ma
+tran truy vet hien tai ghi 148. Bao cao dung 148 va lay do la ma tran
+truy vet.
+
+6. KIEM TRA THAM CHIEU
+----------------------
+Tham chieu chinh xac trong van ban : 39 / 39
+Hinh hoac bang chua duoc tham chieu : 0
+Trich danh [1] - [14] khop danh muc : co
+
+7. HANH CHE
+-----------
+- Khong xuat duoc PDF de kiem tra truc quan bang hinh anh: Word treo
+  tai buoc ExportAsFixedFormat, do moi truong khong co trinh dieu khien
+  in. Kiem chung bo cuc thay the bang phep do truc tiep tren tep
+  (muc 3) va bang cap nhat truong cua Word (muc 2).
+- Trang bia con 5 o can nop: ma so sinh vien, lop, giang vien huong dan,
+  truong khoa, nien khoa. Ten nguoi thuc hien da duoc dien.
+- Muc K-1 trong bao 2.3 da duoc sua o muc ma nguon va qua kiem chung
+  bien dich, nhung CHUA duoc kiem chung tren thiet bi chay Android 16.
+
+8. KET LUAN
+-----------
+Tieu chuan nghiem thu: baocao.docx dat.

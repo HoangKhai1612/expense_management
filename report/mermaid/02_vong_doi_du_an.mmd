@@ -1,0 +1,35 @@
+flowchart TB
+    subgraph Planning["Giai đoạn lập kế hoạch"]
+        direction LR
+        P1["Xác định phạm vi<br/>+ stakeholder"]
+        P2["Ước lượng nỗ lực<br/>và thời gian"]
+        P3["Lập kế hoạch chất lượng<br/>và tiêu chí nghiệm thu"]
+        P4["Nhận diện, phân tích<br/>và ứng phó rủi ro"]
+    end
+
+    subgraph Execution["Giai đoạn thực hiện"]
+        direction LR
+        E1["Backend<br/>Spring Boot + PostgreSQL"]
+        E2["Ứng dụng Android<br/>Kotlin + Compose"]
+        E3["Bảng quản trị<br/>React + TypeScript"]
+        E4["Mô-đun AI<br/>phân tích có ràng buộc"]
+    end
+
+    subgraph Control["Giai đoạn kiểm soát"]
+        direction LR
+        C1["Giám sát<br/>phạm vi, tiến độ, chất lượng"]
+        C2["Quản lý lỗi<br/>phát hiện, khắc phục, hồi quy"]
+        C3["Kiểm thử<br/>5 bộ kiểm thử tự động"]
+    end
+
+    subgraph Closure["Giai đoạn kết thúc"]
+        direction LR
+        F1["Đánh giá mức độ<br/>hoàn thành yêu cầu"]
+        F2["Bàn giao<br/>+ baseline cấu hình"]
+        F3["Nghiệm thu cuối<br/>+ tuyên bố đóng dự án"]
+    end
+
+    Planning --> Execution
+    Execution --> Control
+    Control --> Closure
+    C1 -.->|"phát hiện sai lệch"| P1
